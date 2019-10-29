@@ -2,33 +2,40 @@
 #include <stdlib.h>
 
 int main(int argc, char* argv[]) {
-     long int binary1,binary2;
-     int i = 0,remainder = 0, sum[20];
+	if (argc < 2) {
+		return 1;
+	}
 
-     if (argc < 3) {
-          return 1;
-     }
+	char *arg2;
+	char *arg1 = argv[1];
+	long long
+		bin1 = strtoll(arg1, &arg2, 10),
+		bin2 = strtoll(arg2, NULL, 10);
 
-     binary1 = (long int) argv[1][0];
-     binary2 = (long int) argv[2][0];
+	if (arg1 == arg2) {
+		printf("Invalid input \"%s\"\n");
+		return 2;
+	}
 
-     while(binary1 != 0 || binary1 != 0) {
-          sum[i++] = (binary1%10 + binary2%10 + remainder) % 2;
-          remainder = (binary1%10 + binary2%10 + remainder) / 2;
-          binary1 = binary1/10;
-          binary2 = binary2/10;
-     }
+	int i = 0, r = 0, s[64] = { 0 };
 
-     if(remainder != 0) {
-          sum[i++] = remainder;
-     }
+	while (bin1 != 0 || bin2 != 0) {
+		sum[i++] = (bin1 % 10 + bin2 % 10 + r) % 2;
+		r = (bin1 % 10 + bin2 % 10 + r) / 2;
+		bin1 /= 10;
+		bin2 /= 10;
+	}
 
-     --i;
-     printf("Sum of two binary numbers: ");
-     while(i >= 0) {
-          printf("%d", sum[i--]);
-     }
-     printf("\n");
+	if (r != 0) {
+		sum[i++] = r;
+	}
 
-   return 0;
+	--i;
+	printf("Sum of two binary numbers: ");
+	while (i >= 0) {
+		printf("%d", sum[i--]);
+	}
+	printf("\n");
+
+	return 0;
 }
