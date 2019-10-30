@@ -1,25 +1,25 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 int main(int argc, char* argv[]){
+  if (argc < 2) {
+    return 1;
+  }
   
-  if (argc < 2) return 1;
   long int decimalNumber,remainder,quotient;
-  int octalNumber[100],i=1,j;
-
-//  printf("Enter any decimal number: ");
-//  scanf("%ld",&decimalNumber);
-  decimalNumber = (int) argv[1][0];
-
+  int octalNumber[32],i,j;
+  
+  decimalNumber = atol(argv[1]);
   quotient = decimalNumber;
 
-  while(quotient!=0){
-      octalNumber[i++]= quotient % 8;
+  for (i = 0; quotient != 0; ++i) {
+      octalNumber[i]= quotient % 8;
       quotient = quotient / 8;
   }
 
-  printf("Equivalent octal value of decimal number %d: \n",decimalNumber);
-  for(j = i -1 ;j> 0;j--)
-      printf("%d",octalNumber[j]);
-
+  printf("Equivalent octal value of decimal number %ld is ", decimalNumber);
+  for (j = i - 1; j >= 0; --j)
+    printf("%d",octalNumber[j]);
+  printf("\n");
   return 0;
 }

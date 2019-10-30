@@ -49,10 +49,10 @@ int main(int argc, char *argv[]) {
 	}
 
 	if (check_anagram(fst, snd) == 1) {
-		printf("\"%s\" and \"%s\" are anagrams.\n", a, b);
+		printf("\"%s\" and \"%s\" are anagrams.\n", fst, snd);
 	}
 	else {
-		printf("\"%s\" and \"%s\" are not anagrams.\n", a, b);
+		printf("\"%s\" and \"%s\" are not anagrams.\n", fst, snd);
 	}
 
 	return 0;

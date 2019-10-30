@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
 		return 2;
 	}
 
-	int i = 0, r = 0, s[64] = { 0 };
+	int i = 0, r = 0, sum[64] = { 0 };
 
 	while (bin1 != 0 || bin2 != 0) {
 		sum[i++] = (bin1 % 10 + bin2 % 10 + r) % 2;

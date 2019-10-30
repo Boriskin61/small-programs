@@ -1,17 +1,19 @@
-#include<stdio.h>
-int main(int argc, char* argv[]){
+#include <stdio.h>
+#include <stdlib.h>
 
-  int temp,i,j,a[10];//={36,15,79,48,46,36,37,18,28,27};
+int main(int argc, char *argv[]) {
+  if (argc < 2) {
+    return 1;
+  }
 
-//  printf("Enter total numbers of elements: ");
-//  scanf("%d",&s);
 
-//  printf("Enter %d elements: ",s);
-  for(i=1;i<argc;i++){
+  
+  int temp,i,j,a[10];
+
+  for(i = 1; i < argc; ++i) {
       a[i-1] = argv[i][0];
-}
-//      scanf("%d",&a[i]);
-  //Bubble sorting algorithm
+  }
+  
   for(i=argc-3;i>=0;i--){
       for(j=0;j<=i;j++){
            if(a[j]>a[j+1]){
