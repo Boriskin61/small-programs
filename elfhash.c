@@ -1,33 +1,31 @@
-#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
 unsigned int ELFHash(char* str, unsigned int len) {
-   unsigned int hash = 0;
-   unsigned int x    = 0;
-   unsigned int i    = 0;
+	unsigned int hash = 0;
+	unsigned int x = 0;
+	unsigned int i = 0;
 
-   for (i = 0; i < len; str++, i++) {
-      hash = (hash << 4) + (*str);
-      if ((x = hash & 0xF0000000L) != 0) {
-         hash ^= (x >> 24);
-      }
-      hash &= ~x;
-   }
-
-   return hash;
+	for (i = 0; i < len; str++, i++) {
+		hash = (hash << 4) + (*str);
+		if ((x = hash & 0xF0000000L) != 0) {
+			hash ^= (x >> 24);
+		}
+		hash &= ~x;
+	}
+	return hash;
 }
 
 int main(int argc, char* argv[]) {
-   if (argc < 2) {
-      return 1;
-   }
-   unsigned char *str = argv[1];
-   unsigned int hash = ELFHash(str, strlen(str));
-   
-   printf("ELFHash is %x\n", hash);
-   if (hash == 0xaf9bec9)
-      printf("You win!\n");
-   return 0;
+	if (argc < 2) {
+		return 1;
+	}
+	unsigned char *str = argv[1];
+	unsigned int hash = ELFHash(str, strlen(str));
+
+	printf("ELFHash is %x\n", hash);
+	if (hash == 0xaf9bec9)
+		printf("You win!\n");
+	return 0;
 }
 

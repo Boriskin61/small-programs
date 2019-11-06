@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include <time.h>
 
+int isDigit(char c) {
+	return c >= '0' && c <= '9';
+}
+
 int main(int argc, char* argv[]) {
 	long long n, tmp;
 	int rem, num = 0;

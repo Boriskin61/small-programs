@@ -13,7 +13,7 @@ int main(int argc, char* argv[]) {
 		bin2 = strtoll(arg2, NULL, 10);
 
 	if (arg1 == arg2) {
-		printf("Invalid input \"%s\"\n");
+		printf("Invalid input \"<num1> <num2>\"\n");
 		return 2;
 	}
 

@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -12,8 +11,9 @@ unsigned int BPHash(char* str, unsigned int len) {
 }
 
 int main(int argc, char* argv[]) {
-   if (argc < 2)
-      return 1;
+	if (argc < 2) {
+		return 1;
+	}
    unsigned char *str = argv[1];  
    unsigned int hash = BPHash(str, strlen(str));
    

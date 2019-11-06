@@ -1,32 +1,28 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
 
 int main(int argc, char *argv[]) {
-  if (argc < 2) {
-    return 1;
-  }
+	if (argc < 2) {
+		return 1;
+	}
+	
+	char *sorted = argv[1];
+	int len = strlen(sorted);
 
+	for (int i = len - 1; i >= 0; i--) {
+		for (int j = 0; j < i; j++) {
+			if (sorted[j] > sorted[j + 1]) {
+				int temp = sorted[j];
+				sorted[j] = sorted[j + 1];
+				sorted[j + 1] = temp;
+			}
+		}
+	}
 
-  
-  int temp,i,j,a[10];
-
-  for(i = 1; i < argc; ++i) {
-      a[i-1] = argv[i][0];
-  }
-  
-  for(i=argc-3;i>=0;i--){
-      for(j=0;j<=i;j++){
-           if(a[j]>a[j+1]){
-               temp=a[j];
-              a[j]=a[j+1];
-              a[j+1]=temp;
-           }
-      }
-  }
-
-  printf("After sorting: ");
-  for(i=0;i<argc-1;i++)
-      printf(" %d",a[i]);
-
-  return 0;
+	printf("After sorting: ");
+	for (int i = 0; i < len; i++) {
+		printf(" %d", sorted[i]);
+	}
+	printf("\n");
+	return 0;
 }

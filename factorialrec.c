@@ -1,19 +1,22 @@
-#include<stdio.h>
-int fact(int);
-int main(int argc, char* argv[]){
-  if(argc < 2) return 1;
-  int num,f;
-//  printf("\nEnter a number: ");
-//  scanf("%d",&num);
-  num = (int) argv[1][0];//4;
-  f=fact(num);
-  printf("\nFactorial of %d is: %d\n",num,f);
-  return 0;
+#include <stdio.h>
+#include <stdlib.h>
+
+long long int fact(int n) {
+	return n > 1 ? n*fact(n - 1) : 1;
 }
 
-int fact(int n){
-   if(n==1)
-       return 1;
-   else
-       return(n*fact(n-1));
- }
+int main(int argc, char* argv[]) {
+	int n = 0;
+	if (argc < 2) {
+		return 1;
+	} else {
+		n = atoi(argv[1]);
+	}
+
+	if (n < 0) {
+		printf("Error!!! Factorial of negative number doesn't exist.\n");
+	} else {
+		printf("\nFactorial of %d is: %;lld\n", n, fact(n));
+	}
+	return 0;
+}

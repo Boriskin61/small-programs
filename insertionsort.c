@@ -1,31 +1,28 @@
-#include<stdio.h>
-int main(int argc, char* argv[]){
+#include <stdio.h>
+#include <string.h>
 
-  if (argc < 11) return 1;
-  int i,j,s=10,temp,a[10];//={79,2,38,62,15,73,100,31,39,7};
+int main(int argc, char* argv[]) {
+	if (argc < 2) {
+		return 1;
+	}
 
-//  printf("Enter total elements: ");
-//  scanf("%d",&s);
+	char *sorted = argv[1];
+	int len  = strlen(sorted);
 
-//  printf("Enter %d elements: ",s);
-//  for(i=0;i<s;i++)
-//      scanf("%d",&a[i]);
-  for(i=1;i<argc;i++)
-     a[i-1] = argv[i][0];
+	for (int i = 1; i < len ; i++) {
+		int temp = sorted[i];
+		int j = i - 1;
+		while ((temp < sorted[j]) && (j >= 0)) {
+			sorted[j + 1] = sorted[j];
+			j = j - 1;
+		}
+		sorted[j + 1] = temp;
+	}
 
-  for(i=1;i<s;i++){
-      temp=a[i];
-      j=i-1;
-      while((temp<a[j])&&(j>=0)){
-      a[j+1]=a[j];
-          j=j-1;
-      }
-      a[j+1]=temp;
-  }
-
-  printf("After sorting: ");
-  for(i=0;i<s;i++)
-      printf(" %d",a[i]);
-
-  return 0;
+	printf("After sorting: ");
+	for (int i = 0; i < len; i++) {
+		printf(" %c", sorted[i]);
+	}
+	printf("\n");
+	return 0;
 }

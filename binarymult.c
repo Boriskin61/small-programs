@@ -1,52 +1,56 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-int binaryAddition(int,int);
+int binaryAddition(long long int bin1, long long int bin2) {
+	int i = 0, remainder = 0, sum[64];
+	int binarySum = 0;
 
-int main(int argc, char* argv[]){
+	while (bin1 != 0 || bin2 != 0) {
+		sum[i++] = (bin1 % 10 + bin2 % 10 + remainder) % 2;
+		remainder = (bin1 % 10 + bin2 % 10 + remainder) / 2;
+		bin1 /= 10;
+		bin2 /= 10;
+	}
 
-    if (argc < 3 ) return 1;
-    long int binary1,binary2,multiply=0;
-    int digit,factor=1;
+	if (remainder != 0) {
+		sum[i++] = remainder;
+	}
 
-    binary1 = (long int) argv[1][0];//1111;
-    binary2 = (long int) argv[2][0];//111;
-
-    while(binary2!=0){
-         digit =  binary2 %10;
-
-         if(digit ==1){
-                 binary1=binary1*factor;
-                 multiply = binaryAddition(binary1,multiply);
-         }
-         else
-             binary1=binary1*factor;
-   
-         binary2 = binary2/10;
-         factor = 10;
-    }
-
-    printf("Product of two binary numbers: %ld\n",multiply);
-   
-   return 0;
+	while (--i >= 0) {
+		binarySum = binarySum * 10 + sum[i];
+	}
+	return binarySum;
 }
 
-int binaryAddition(int binary1,int binary2){
+int main(int argc, char* argv[]) {
+	if (argc < 2) {
+		return 1;
+	}
 
-    int i=0,remainder = 0,sum[20];
-    int binarySum=0;
+	char *arg2;
+	char *arg1 = argv[1];
+	long long int
+		mul = 0,
+		bin1 = strtoll(arg1, &arg2, 10),
+		bin2 = strtoll(arg2, NULL, 10);
 
-    while(binary1!=0||binary2!=0){
-         sum[i++] =  (binary1 %10 + binary2 %10 + remainder ) % 2;
-         remainder = (binary1 %10 + binary2 %10 + remainder ) / 2;
-         binary1 = binary1/10;
-         binary2 = binary2/10;
-    }
+	if (arg1 == arg2) {
+		printf("Invalid input \"<num1> <num2>\"\n");
+		return 2;
+	}
 
-    if(remainder!=0)
-         sum[i++] = remainder;
-    --i;
-    while(i>=0)
-         binarySum = binarySum*10 + sum[i--];
+	int digit, factor = 1;
 
-    return binarySum;
+	while (bin2 != 0) {
+		digit = bin2 % 10;
+		bin1 *= factor;
+		mul = digit == 1 ? binaryAddition(bin1, mul) : mul; 
+		bin2 = bin2 / 10;
+		factor = 10;
+	}
+
+	printf("Product of two binary numbers: %ld\n", mul);
+	return 0;
 }
+
+

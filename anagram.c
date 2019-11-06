@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-int check_anagram(char a[], char b[]) {
+int check_anagram(char sorted[], char b[]) {
 	int first[26] = { 0 }, second[26] = { 0 }, c = 0;
 
-	while (a[c] != '\0') {
-		first[a[c] - 'a']++;
+	while (sorted[c] != '\0') {
+		first[sorted[c] - 'a']++;
 		c++;
 	}
 
@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
 	}
 
 	char *fst = argv[1], *snd = NULL;
-	size_t len = strlen(fst);
+	int len = strlen(fst);
 
 	for (int i = 1; i < len; ++i) {
 		if (fst[i] == ' ') {
@@ -49,10 +49,9 @@ int main(int argc, char *argv[]) {
 	}
 
 	if (check_anagram(fst, snd) == 1) {
-		printf("\"%s\" and \"%s\" are anagrams.\n", fst, snd);
-	}
-	else {
-		printf("\"%s\" and \"%s\" are not anagrams.\n", fst, snd);
+		printf("\"%s \" and \"%s \" are anagrams.\n", fst, snd);
+	} else {
+		printf("\"%s \" and \"%s \" are not anagrams.\n", fst, snd);
 	}
 
 	return 0;
