@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-void quicksort(int *x, int first, int last) {
+void quicksort(char *x, int first, int last) {
 	int pivot, j, temp, i;
 	if (first < last) {
 		pivot = first;
@@ -30,46 +30,29 @@ void quicksort(int *x, int first, int last) {
 }
 
 int main(int argc, char* argv[]) {
-	char *next;
-	int i, count, *nums;
-	if (argc < 1) {
+	char *sorted;
+	int count;
+	if (argc < 2) {
 		return 1;
+	} else {
+		count = strlen(argv[1]);
 	}
 
-	int len = strlen(argv[1]);
-	for (int i = 0; i < len; ++i) {
-		if ('0' <= argv[1][i] && argv[1][i] <= '9') {
-			continue;
-		} else if (argv[1][i] == ' ') {
-			continue;
-		} else {
-			printf("Invalid number in input string: %c\n", argv[1][i]);
-			return 2;
+	sorted = calloc(count + 1, sizeof(char));
+	if (!sorted) {
+		return 2;
+	} else {
+		for (int i = 0; i < count; ++i) {
+			sorted[i] = argv[1][i];
 		}
 	}
 
+	quicksort(sorted, 0, count - 1);
+	printf(
+		"Before sorting is: %s\n"
+		"After sorting is: %s\n",
+		argv[1], sorted);
 
-	next = argv[1];
-	for (count = 0; strtol(next, &next, 10) || *next != '\0'; ++count) { ; }
-
-	printf("numbers count = %d\n", count);
-	nums = calloc(count, sizeof(int));
-	if (!nums) {
-		return 2;
-	}
-
-	next = argv[1];
-	for (int i = 0; i < count; ++i) {
-		nums[i] = strtol(next, &next, 10);
-	}
-
-	quicksort(nums, 0, count - 1);
-	printf("Sorted elements: ");
-	for (int i = 0; i < count; ++i) {
-		printf(" %d", nums[i]);
-	}
-	printf("\n");
-
-	free(nums);
+	free(sorted);
 	return 0;
 }

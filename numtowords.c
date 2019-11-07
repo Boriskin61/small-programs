@@ -30,7 +30,7 @@ int main(int argc, char* argv[]) {
 	}
 
 	for (int j = i - 1; j >= 0; --j) {
-		printf("%len  ", word[j]);
+		printf("%s  ", word[j]);
 	}
 	printf("\n");
 	return 0;

@@ -18,8 +18,9 @@ int check_anagram(char sorted[], char b[]) {
 	}
 
 	for (c = 0; c < 26; c++) {
-		if (first[c] != second[c])
+		if (first[c] != second[c]) {
 			return 0;
+		}
 	}
 
 	return 1;

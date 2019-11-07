@@ -19,7 +19,6 @@ void postdigits(char c,int n){
 }
 
 int main(int argc, char* argv[]){
-    int j;
     long int number;
 
     if (argc < 2) {
@@ -29,7 +28,7 @@ int main(int argc, char* argv[]){
     }
     
     if (number <= 0){
-         printf("Invalid number");
+         printf("Invalid number\n");
          return 0;
     }
 
@@ -101,7 +100,7 @@ int main(int argc, char* argv[]){
     }
 
     printf("Roman number will be: ");
-    for (j = 0; j < i; ++j) {
+    for (int j = 0; j < i; ++j) {
          printf("%c", roman_Number[j]);
     }
     printf("\n");

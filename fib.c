@@ -11,7 +11,6 @@ int fib(int n) {
 		sorted = b;
 		b = c;
 	}
-
 	return b;
 }
 

@@ -6,12 +6,7 @@ int main(int argc, char* argv[]) {
 		return 1;
 	}
 
-	int sum = 0;
-	int n = strtol(argv[1], NULL, 10);
-	if (!n && argv[1][0] >= '0' && argv[1][0] <= '9') {
-		return 2;
-	}
-
+	int n = strtol(argv[1], NULL, 10), sum = 0;
 	for (int i = 1; i < n; ++i) {
 		if (n % i == 0) {
 			sum = sum + i;
@@ -19,8 +14,7 @@ int main(int argc, char* argv[]) {
 	}
 	if (sum == n) {
 		printf("%d is sorted perfect number\n", n);
-	}
-	else {
+	} else {
 		printf("%d is not sorted perfect number\n", n);
 	}
 	return 0;

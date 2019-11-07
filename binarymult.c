@@ -49,7 +49,7 @@ int main(int argc, char* argv[]) {
 		factor = 10;
 	}
 
-	printf("Product of two binary numbers: %ld\n", mul);
+	printf("Product of two binary numbers: %lld\n", mul);
 	return 0;
 }
 

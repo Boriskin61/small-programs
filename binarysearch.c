@@ -1,29 +1,37 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
 
 int main(int argc, char* argv[]) {
+	int len;
 	if (argc < 2) {
 		return 1;
+	} else {
+		len = strlen(argv[1]);
 	}
 
-	int sorted[10], i, m, c = 0, l, u, mid;
-	for (i = 1; i < argc - 1; ++i) {
-		sorted[i - 1] = argv[i][0];
+	char ch, *str;
+	if (len < 3 || argv[1][0] == ' ' || argv[1][1] != ' ') {
+		printf("Unascceptable input. Input format must be \"<char> <string>\"\n");
+		return 2;
+	} else {
+		len -= 2;
+		ch = argv[1][0];
+		str = &argv[1][2];
 	}
 
-	m = (int)argv[argc - 1][0];
-
-	l = 0, u = argc - 2;
+	int c = 0, l = 0, u = len - 1;
 	while (l <= u) {
-		mid = (l + u) / 2;
-		if (m == sorted[mid]) {
+		int mid = (l + u) / 2;
+		if (ch == str[mid]) {
 			c = 1;
 			break;
-		} else if (m < sorted[mid]) {
+		} else if (ch < str[mid]) {
 			u = mid - 1;
-		} else
+		} else {
 			l = mid + 1;
+		}
 	}
+
 	if (c == 0) {
 		printf("The number is not found.\n");
 	} else {

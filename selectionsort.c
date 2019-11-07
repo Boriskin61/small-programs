@@ -21,7 +21,6 @@ int main(int argc, char *argv[]) {
 		}
 	}
 
-
 	for (i = 0; i < count; ++i) {
 		for (j = i + 1; j < count; ++j) {
 			if (sorted[i] > sorted[j]) {
@@ -33,8 +32,8 @@ int main(int argc, char *argv[]) {
 	}
 
 	printf(
-		"Before sorting is: %len \n"
-		"After sorting is: %len \n",
+		"Before sorting is: %s\n"
+		"After sorting is: %s\n",
 		argv[1], sorted);
 
 	free(sorted);

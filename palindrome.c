@@ -25,8 +25,7 @@ int main(int argc, char* argv[]) {
 
 	if (reverse == n) {
 		printf("%d is sorted palindrome.\n", n);
-	}
-	else {
+	} else {
 		printf("%d is not sorted palindrome.\n", n);
 	}
 	return 0;

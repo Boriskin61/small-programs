@@ -1,35 +1,46 @@
 #include <stdio.h>
+#include <string.h>
 
-int binary(int sorted[], int n, int m, int l, int u) {
+int binary(char sorted[], int n, int m, int l, int u) {
 	int mid, c = 0;
 
 	if (l <= u) {
 		mid = (l + u) / 2;
 		if (m == sorted[mid]) {
-			c = 1;
+			return 1;
 		} else if (m < sorted[mid]) {
 			return binary(sorted, n, m, l, mid - 1);
-		} else
+		} else {
 			return binary(sorted, n, m, mid + 1, u);
-	} else
-		return c;
+		}
+	} else {
+		return 0;
+	}
 }
 
 int main(int argc, char* argv[]) {
-	if (argc < 12) return 1;
-	int sorted[10], i, m, c, l, u;
+	int len;
+	if (argc < 2) {
+		return 1;
+	} else {
+		len = strlen(argv[1]);
+	}
 
-	for (i = 1; i < argc - 1; i++)
-		sorted[i - 1] = argv[i][0];
+	char ch, *str;
+	if (len < 3 || argv[1][0] == ' ' || argv[1][1] != ' ') {
+		printf("Unascceptable input. Input format must be \"<char> <string>\"\n");
+		return 2;
+	} else {
+		len -= 2;
+		ch = argv[1][0];
+		str = &argv[1][2];
+	}
 
-	m = (int)argv[argc - 1][0];
-
-	l = 0, u = argc - 2;
-	c = binary(sorted, argc - 1, m, l, u);
-	if (c == 0)
-		printf("Number is not found.\n");
-	else
+	if (binary(str, len - 1, ch, 0, len - 2)) {
 		printf("Number is found.\n");
+	} else {
+		printf("Number is not found.\n");
+	}
 
 	return 0;
 }

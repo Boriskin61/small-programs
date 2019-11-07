@@ -6,7 +6,7 @@ int main(int argc, char* argv[]) {
 		return 1;
 	}
 
-	long int decimalNumber, remainder, quotient;
+	long int decimalNumber, quotient;
 	int octalNumber[32], i, j;
 
 	decimalNumber = atol(argv[1]);

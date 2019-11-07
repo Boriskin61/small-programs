@@ -16,7 +16,7 @@ int main(int argc, char* argv[]) {
 	if (n < 0) {
 		printf("Error!!! Factorial of negative number doesn't exist.\n");
 	} else {
-		printf("\nFactorial of %d is: %;lld\n", n, fact(n));
+		printf("\nFactorial of %d is: %lld\n", n, fact(n));
 	}
 	return 0;
 }

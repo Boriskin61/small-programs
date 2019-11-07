@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int get_max(int *nums, int count) {
 	int max = nums[0];
