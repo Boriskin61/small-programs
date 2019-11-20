@@ -14,20 +14,14 @@ unsigned int BKDRHash(char* str, unsigned int len) {
 }
 
 int main(int argc, char* argv[]) {
-   unsigned char *str;
-   unsigned int hash;
-   if (argc < 2) {
-      return 1;
-   } else {
-      str = argv[1];  
-      hash = BKDRHash(str, strlen(str));
-   }
-
-
-   printf("BKDRHash is %d\n", hash);
-   if (hash == 0xbd9282b2) {
-   	printf("You find secret key!\n");
-   }
-   return 0;
+	if (argc < 2) {
+		return 1;
+	} else {
+      char *data = argv[1];
+      int len = strlen(data);
+      int hash = BKDRHash(data, len);
+		printf("BKDRHash is 0x%08x\n", hash);
+		return 0;
+	}
 }
 

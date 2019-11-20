@@ -1,16 +1,17 @@
 #include <stdio.h>
+#include <string.h>
 
 int main(int argc, char* argv[]) {
-	char *line = NULL;
-	int i, v, c, ch, d, len , o;
+	char *line;
+	int i, v, c, d, w, len;
 	if (argc < 2) {
 		return 1;
 	} else {
 		line = argv[1];
-		i = v = c = ch = d = len  = o = 0;
+		i = v = c = d = w = 0, len = strlen(line);
 	}
 
-	for (i = 0; line[i] != '\0'; ++i) {
+	for (i = 0; i < len; ++i) {
 		switch (line[i]) {
 		case 'a':
 		case 'e':
@@ -37,7 +38,7 @@ int main(int argc, char* argv[]) {
 			++d;
 			break;
 		case ' ':
-			++len ;
+			++w ;
 			break;
 		default:
 			if ((line[i] >= 'a' && line[i] <= 'z') || (line[i] >= 'A'&& line[i] <= 'Z')) {
@@ -52,6 +53,6 @@ int main(int argc, char* argv[]) {
 		"Consonants: %d\n"
 		"Digits: %d\n"
 		"White spaces: %d\n"
-		, v, c, d, len );
+		, v, c, d, w);
 	return 0;
 }

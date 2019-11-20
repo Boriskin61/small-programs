@@ -1,20 +1,22 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
 
 int main(int argc, char* argv[]) {
-	int num, r, reverse = 0;
+	int len;
+	char *str;
 	if (argc < 2) {
 		return 1;
 	} else {
-		num = strtol(argv[1], NULL, 10);
+		str = argv[1];
+		len = strlen(str);
 	}
 
-	while (num) {
-		r = num % 10;
-		reverse = reverse * 10 + r;
-		num = num / 10;
+	for (int i = 0, end = len >> 1; i < end; ++i) {
+		str[i] ^= str[len - i - 1];
+		str[len - i - 1] ^= str[i];
+		str[i] ^= str[len - i - 1];
 	}
 
-	printf("Reversed of number: %d\n", reverse);
+	printf("Reversed: %s\n", str);
 	return 0;
 }

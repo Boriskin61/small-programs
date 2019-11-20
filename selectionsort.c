@@ -1,41 +1,27 @@
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
 
 int main(int argc, char *argv[]) {
 	char *sorted;
-	int i, j, count, temp;
+	int i, j, len, tmp;
 
 	if (argc < 2) {
 		return 1;
 	} else {
-		count = strlen(argv[1]);
+		sorted = argv[1];
+		len = strlen(sorted);
 	}
 
-	sorted = calloc(count + 1, sizeof(char));
-	if (!sorted) {
-		return 2;
-	} else {
-		for (i = 0; i < count; ++i) {
-			sorted[i] = argv[1][i];
-		}
-	}
-
-	for (i = 0; i < count; ++i) {
-		for (j = i + 1; j < count; ++j) {
+	for (i = 0; i < len; ++i) {
+		for (j = i + 1; j < len; ++j) {
 			if (sorted[i] > sorted[j]) {
-				temp = sorted[i];
+				tmp = sorted[i];
 				sorted[i] = sorted[j];
-				sorted[j] = temp;
+				sorted[j] = tmp;
 			}
 		}
 	}
 
-	printf(
-		"Before sorting is: %s\n"
-		"After sorting is: %s\n",
-		argv[1], sorted);
-
-	free(sorted);
+	printf("After sorting: %s\n", sorted);
 	return 0;
 }

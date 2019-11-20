@@ -19,13 +19,12 @@ unsigned int ELFHash(char* str, unsigned int len) {
 int main(int argc, char* argv[]) {
 	if (argc < 2) {
 		return 1;
+	} else {
+		char *data = argv[1];
+    	int len = strlen(data);
+    	int hash = ELFHash(data, len);
+		printf("ELFHash is 0x%08x\n", hash);
+		return 0;
 	}
-	unsigned char *str = argv[1];
-	unsigned int hash = ELFHash(str, strlen(str));
-
-	printf("ELFHash is %x\n", hash);
-	if (hash == 0xaf9bec9)
-		printf("You win!\n");
-	return 0;
 }
 

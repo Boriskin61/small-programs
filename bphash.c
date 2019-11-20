@@ -13,13 +13,12 @@ unsigned int BPHash(char* str, unsigned int len) {
 int main(int argc, char* argv[]) {
 	if (argc < 2) {
 		return 1;
+	} else {
+      char *data = argv[1];
+      int len = strlen(data);
+      int hash = BPHash(data, len);
+		printf("BPHash is 0x%08x\n", hash);
+		return 0;
 	}
-   unsigned char *str = argv[1];  
-   unsigned int hash = BPHash(str, strlen(str));
-   
-   printf("BPHash is %x\n", hash);
-   if (hash == 0x5bfaf2f9)
-      printf("You find secret key!\n");
-   return 0;
 }
 

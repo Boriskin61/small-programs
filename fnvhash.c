@@ -14,14 +14,14 @@ unsigned int FNVHash(char* str, unsigned int len) {
 }
 
 int main(int argc, char* argv[]) {
-	if (argc < 2)
+	if (argc < 2) {
 		return 1;
-	unsigned char *str = argv[1];
-	unsigned int hash = FNVHash(str, strlen(str));
-
-	printf("FNVHash is %x\n", hash);
-	if (hash == 0xee3c81d4)
-		printf("You find secret key!\n");
-	return 0;
+	} else {
+		char *data = argv[1];
+    	int len = strlen(data);
+    	int hash = FNVHash(data, len);
+		printf("FNVHash is 0x%08x\n", hash);
+		return 0;
+	}
 }
 

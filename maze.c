@@ -3,18 +3,18 @@
 #include <stdlib.h>
 
 enum {
-	kWidth = 11,
+	kWidth = 7,
 	kHeight = 7
 };
 
 char maze[kHeight][kWidth] = {
-	{'+', '-', '+', '-', '-', '-', '+', '-', '-', '-', '+'},
-	{'|', ' ', '|', ' ', ' ', ' ', ' ', ' ', '|', '#', '|'},
-	{'|', ' ', '|', ' ', '-', '-', '+', ' ', '|', ' ', '|'},
-	{'|', ' ', '|', ' ', ' ', ' ', '|', ' ', '|', ' ', '|'},
-	{'|', ' ', '+', '-', '-', ' ', '|', ' ', '|', ' ', '|'},
-	{'|', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', '|'},
-	{'+', '-', '-', '-', '-', '-', '+', '-', '-', '-', '+'},
+	{'+', '-', '+', '-', '-', '-', '+'},
+	{'|', ' ', '|', ' ', ' ', '#', '|'},
+	{'|', ' ', '|', ' ', '-', '-', '|'},
+	{'|', ' ', '|', ' ', ' ', ' ', '|'},
+	{'|', ' ', '+', '-', '-', ' ', '|'},
+	{'|', ' ', ' ', ' ', ' ', ' ', '|'},
+	{'+', '-', '-', '-', '-', '-', '+'},
 };
 
 void draw(void) {
@@ -29,7 +29,7 @@ void draw(void) {
 }
 
 enum {
-  kMaxNumPlayerMoves = 28
+  kMaxNumPlayerMoves = 16
 };
 
 int main(int argc, char *argv[]) {
@@ -87,7 +87,7 @@ int main(int argc, char *argv[]) {
 			return EXIT_FAILURE;
 		default:
 			printf(
-				"Wrong command <%c>, only w,len ,sorted,d are accepted!)\n"
+				"Wrong command <%c>, only w,a,s,d are accepted!)\n"
 				"You lose!\n",
 				actions[i]);
 			draw();

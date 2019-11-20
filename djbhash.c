@@ -14,13 +14,11 @@ unsigned int DJBHash(char* str, unsigned int len) {
 int main(int argc, char* argv[]) {
 	if (argc < 2) {
 		return 1;
+	} else {
+		char *data = argv[1];
+    	int len = strlen(data);
+    	int hash = DJBHash(data, len);
+		printf("DJBHash is 0x%08x\n", hash);
+		return 0;
 	}
-	unsigned char *str = argv[1];
-	unsigned int hash = DJBHash(str, strlen(str));
-
-	printf("DJBHash is %x\n", hash);
-	if (hash == 0x49a54935)
-		printf("You find secret key!\n");
-	return 0;
 }
-

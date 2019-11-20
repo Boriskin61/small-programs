@@ -31,28 +31,15 @@ void quicksort(char *x, int first, int last) {
 
 int main(int argc, char* argv[]) {
 	char *sorted;
-	int count;
+	int len;
 	if (argc < 2) {
 		return 1;
 	} else {
-		count = strlen(argv[1]);
+		sorted = argv[1];
+		len = strlen(sorted);
 	}
 
-	sorted = calloc(count + 1, sizeof(char));
-	if (!sorted) {
-		return 2;
-	} else {
-		for (int i = 0; i < count; ++i) {
-			sorted[i] = argv[1][i];
-		}
-	}
-
-	quicksort(sorted, 0, count - 1);
-	printf(
-		"Before sorting is: %s\n"
-		"After sorting is: %s\n",
-		argv[1], sorted);
-
-	free(sorted);
+	quicksort(sorted, 0, len - 1);
+	printf("After sorting: %s\n", sorted);
 	return 0;
 }
