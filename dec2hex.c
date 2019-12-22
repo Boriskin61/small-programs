@@ -8,7 +8,7 @@ int main(int argc, char* argv[]) {
 
 	int i, j, temp;
 	long long int decimalNumber, quotient;
-	char hexadecimalNumber[16];
+	char hexadecimalNumber[16] = { 0 };
 
 	decimalNumber = atoll(argv[1]);
 	quotient = decimalNumber;
