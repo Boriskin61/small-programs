@@ -34,6 +34,5 @@ int main(int argc, char* argv[]) {
 
 	printf("Largest element: %d\n", get_max(nums, len));
 	printf("Smallest element: %d\n", get_min(nums, len));
-	free(nums);
 	return 0;
 }

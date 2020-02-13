@@ -20,7 +20,7 @@ int main(int argc, char* argv[]) {
 	}
 
 	long long n = atoll(argv[1]);
-	if (n < 0) {
+	if (n <= 0) {
 		printf("Error, input value must be greater than 0\n");
 	} else {
 		printf("fib(%lli)=%llu\n", n, fib(n));

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX 50
+#define MAX 16
 
 void mergeSort(char arr[], int low, int mid, int high) {
 	int i, m, k, l, temp[MAX];
@@ -44,13 +44,9 @@ int main(int argc, char* argv[]) {
 	char *sorted;
 	if (argc < 2) {
 		return 1;
-	} else {
-		sorted = argv[1];
-		len = strlen(argv[1]);
 	}
 
-	partition(sorted, 0, len - 1);
+	partition(argv[1], 0, strlen(argv[1]) - 1);
 	printf("After sorting: %s\n", sorted);
 	return 0;
 }
-

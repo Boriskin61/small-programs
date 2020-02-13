@@ -1,54 +1,34 @@
 #include <stdio.h>
 #include <string.h>
 
+char** getWords() {
+    static char* words[10];
+    words[0] = "zero";
+    words[1] = "one";
+    words[2] = "two";
+    words[3] = "three";
+    words[4] = "four";
+    words[5] = "five";
+    words[6] = "six";
+    words[7] = "seven"; 
+    words[8] = "eight"; 
+    words[9] = "nine";
+    return words;
+}
+
 int main(int argc, char* argv[]) {
 	if (argc < 2) {
 		return 1;
 	}
 
 	int i, len = strlen(argv[1]);
-	char *word[32];
-
-	for (i = 0; i < len; ) {
-		switch (argv[1][i]) {
-		case '0': 
-			word[i++] = "zero";
-			break;
-		case '1': 
-			word[i++] = "one";
-			break;
-		case '2': 
-			word[i++] = "two";
-			break;
-		case '3': 
-			word[i++] = "three";
-			break;
-		case '4': 
-			word[i++] = "four";
-			break;
-		case '5': 
-			word[i++] = "five";
-			break;
-		case '6': 
-			word[i++] = "six";
-			break;
-		case '7': 
-			word[i++] = "seven"; 
-			break;
-		case '8': 
-			word[i++] = "eight"; 
-			break;
-		case '9': 
-			word[i++] = "nine";
-			break;
-		default:
-			printf("Error! Symbol '%c' is not a digit\n", argv[1][i++]);
+    char **words = getWords();
+	for (i = 0; i < len; ++i) {
+        if (argv[1][i] < '0' && '9' < argv[1][i]) {
+			printf("Error! Symbol '%c' is not a digit\n", argv[1][i]);
 			return -1;
 		}
-	}
-
-	for (int j = i - 1; j >= 0; --j) {
-		printf("%s ", word[j]);
+        printf("%s ", words[argv[1][i] - '0']);
 	}
 	printf("\n");
 	return 0;
