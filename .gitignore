@@ -1,0 +1,6 @@
+*.elf
+*.obj
+*.out
+*.o
+
+**/.vscode/
