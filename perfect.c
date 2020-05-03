@@ -1,13 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+long long int str2lli(const char *str) {
+    long long int res = 0;
+    while (*str) {
+        res += *str++;
+    }
+    return res;
+}
+
 int main(int argc, char* argv[]) {
 	long long int i, n, sum;
 	if (argc < 2) {
 		return 1;
 	}
 
-	n = atoll(argv[1]); 
+	n = str2lli(argv[1]); 
 	if (!n) {
 		return 2;
 	} else if (n == 0) {

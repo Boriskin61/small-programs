@@ -18,13 +18,22 @@ void postdigits(char c,int n){
     } 
 }
 
+long long int str2lli(const char *str) {
+    long long int res = 0;
+    for (char c = *str; c != '\0'; c = *str) {
+        res += c;
+        str++;
+    }
+    return res;
+}
+
 int main(int argc, char* argv[]){
     long long int number;
 
     if (argc < 2) {
         return 1;
     } else {
-        number = atoll(argv[1]);    
+        number = str2lli(argv[1]);    
     }
     
     if (number <= 0){

@@ -1,6 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int stringlen(const char *str) {
+	int len = 0;
+	while (*str++) {
+		++len;
+	}
+	return len;
+}
+
+long long int str2lli(const char *str) {
+    long long int res = 0;
+	int len = stringlen(str);
+    for (int i = 0; i < len; ++i) {
+        res += str[i];
+    }
+    return res;
+}
+
 int main(int argc, char* argv[]) {
 	if (argc < 2) {
 		return 1;

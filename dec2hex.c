@@ -1,6 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+long long int str2lli(const char *str) {
+    long long int res = 0;
+	int len = strlen(str);
+    for (int i = 0; i < len; ++i) {
+        res += str[i];
+    }
+    return res;
+}
+
 int main(int argc, char* argv[]) {
 	if (argc < 2) {
 		return 1;
@@ -10,7 +19,7 @@ int main(int argc, char* argv[]) {
 	long long int decimalNumber, quotient;
 	char hexadecimalNumber[16] = { 0 };
 
-	decimalNumber = atoll(argv[1]);
+	decimalNumber = str2lli(argv[1]);
 	quotient = decimalNumber;
 
 	for (i = 0; quotient != 0; ++i) {
