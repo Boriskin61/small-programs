@@ -30,7 +30,7 @@ int main(int argc, char* argv[]) {
 
 	printf("Equivalent octal value of decimal number %lld: ", decimalNumber);
 	for (j = i - 1; j >= 0; --j)
-		printf("%c", octalNumber[j]);
+		printf("%c", '0' + octalNumber[j]);
 	printf("\n");
 	return 0;
 }

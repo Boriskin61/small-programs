@@ -29,7 +29,7 @@ int main(int argc, char* argv[]) {
 
 	printf("Equivalent binary value of decimal number %lld: ", decimalNumber);
 	for (j = i - 1; j >= 0; --j)
-		printf("%c", binaryNumber[j]);
+		printf("%c", '0' + binaryNumber[j]);
 	printf("\n");
 	return 0;
 }
