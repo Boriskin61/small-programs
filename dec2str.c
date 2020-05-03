@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
 	long long int decimalNumber, quotient;
 	char stringNumber[32] = { 0 };
 
-	decimalNumber = atoll(argv[1]);
+	decimalNumber = str2lli(argv[1]);
 	quotient = decimalNumber;
 
 	for (i = 0; quotient != 0; ++i) {

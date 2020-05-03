@@ -16,15 +16,14 @@ int main(int argc, char* argv[]) {
 
 	int i, j, temp;
 	long long int decimalNumber, quotient;
-	char binaryNumber[64] = { 0 };
+	int binaryNumber[64] = { 0 };
 
 	decimalNumber = str2lli(argv[1]);
 	quotient = decimalNumber;
 
 	for (i = 0; quotient != 0; ++i) {
-		temp = quotient & ~1;
-		binaryNumber[i] = temp;
-		quotient = quotient >> 1;
+		binaryNumber[i] = quotient % 2;
+		quotient /= 2;
 	}
 
 	printf("Equivalent binary value of decimal number %lld: ", decimalNumber);

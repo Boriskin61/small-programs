@@ -20,7 +20,7 @@ int main(int argc, char* argv[]) {
 	}
 	printf(
 		"String value is %s\n"
-		"Decimial number is %o\n", 
+		"Decimial number is %llo\n", 
 		argv[1], res);
 	return 0;
 }

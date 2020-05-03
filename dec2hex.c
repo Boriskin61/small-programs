@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 long long int str2lli(const char *str) {
     long long int res = 0;
