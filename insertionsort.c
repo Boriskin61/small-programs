@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
 	for (int i = 1; i < len ; i++) {
 		int tmp = sorted[i];
 		int j = i - 1;
-		while ((tmp < sorted[j]) && (j >= 0)) {
+		while ((j >= 0) && (tmp < sorted[j])) {
 			sorted[j + 1] = sorted[j];
 			j = j - 1;
 		}

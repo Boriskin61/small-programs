@@ -41,12 +41,11 @@ void partition(char arr[], int low, int high) {
 
 int main(int argc, char* argv[]) {
 	int len = 0;
-	char *sorted;
 	if (argc < 2) {
 		return 1;
 	}
 
 	partition(argv[1], 0, strlen(argv[1]) - 1);
-	printf("After sorting: %s\n", sorted);
+	printf("After sorting: %s\n", argv[1]);
 	return 0;
 }

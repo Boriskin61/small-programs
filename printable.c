@@ -12,9 +12,9 @@ int main(int argc, char* argv[]) {
 	}
 
 	for (i = 0; i < len; ++i) {
-        if (line[i]>='a' && line[i]<='z' || line[i]>='A' && line[i]<='Z') {
+        if ((line[i]>='a' && line[i]<='z') || (line[i]>='A' && line[i]<='Z')) {
             ++chars; ++print;
-        } else if (line[i] >= '0' && line[i] <= '9') {
+        } else if ((line[i] >= '0' && line[i] <= '9')) {
             ++digs; ++print;
         } else if (line[i] >= ' ' && line[i] <= '\x7f') {
             ++other; ++print;
