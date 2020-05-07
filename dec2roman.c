@@ -38,7 +38,7 @@ int main(int argc, char* argv[]){
     
     if (number <= 0){
          printf("Invalid number\n");
-         return 0;
+         return 2;
     }
 
     while (number != 0) {

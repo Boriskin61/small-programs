@@ -4,7 +4,7 @@
 long long int str2lli(const char *str) {
     long long int res = 0;
     while (*str) {
-        res += *str++;
+        res += (unsigned)*str++;
     }
     return res;
 }
@@ -14,21 +14,19 @@ int main(int argc, char* argv[]) {
 		return 1;
 	}
 
-	int i, j, temp;
-	long long int decimalNumber, quotient;
-	int binaryNumber[64] = { 0 };
-
-	decimalNumber = str2lli(argv[1]);
-	quotient = decimalNumber;
-
+	char binaryNumber[64];
+	long long int decimalNumber = str2lli(argv[1]);
+	long long int quotient = decimalNumber;
+	int i;
+	
 	for (i = 0; quotient != 0; ++i) {
-		binaryNumber[i] = quotient % 2;
-		quotient /= 2;
+		binaryNumber[i] = quotient % 2 ? '1' : '0';
+		quotient >>= 1;
 	}
 
 	printf("Equivalent binary value of decimal number %lld: ", decimalNumber);
-	for (j = i - 1; j >= 0; --j)
-		printf("%c", '0' + binaryNumber[j]);
+	for (int j = i - 1; j >= 0; --j)
+		printf("%c", binaryNumber[j]);
 	printf("\n");
 	return 0;
 }

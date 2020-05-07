@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
 	srand(time(NULL));
 	printf("%d random numbers in range [1, ascii code]: \n", len);
 	for (int i = 1; i <= len; ++i) {
-		int n = rand() % argv[1][i] + 1;
+		int n = rand() % (unsigned)(argv[1][i] + 1);
 		printf("%d ", n);
 	}
 	printf("\n");

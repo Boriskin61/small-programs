@@ -2,24 +2,24 @@
 #include <stdlib.h>
 #include <string.h>
 
-int get_max(char *nums, int count) {
-	int max = nums[0];
-	for (int i = 1; i < count; ++i) {
-		if (max < nums[i]) {
-			max = nums[i];
-		}
-	}
-	return max;
-}
+typedef struct _minmax_ {
+	int min;
+	int max;
+} minmax;
 
-int get_min(char *nums, int count) {
-	int min = nums[0];
+minmax get_minmax(char *nums, int count) {
+	minmax mm;
+	mm.min = nums[0];
+	mm.max = nums[0];
 	for (int i = 1; i < count; ++i) {
-		if (min > nums[i]) {
-			min = nums[i];
+		if (mm.min > nums[i]) {
+			mm.min = nums[i];
+		}
+		if (mm.max < nums[i]) {
+			mm.max = nums[i];
 		}
 	}
-	return min;
+	return mm;
 }
 
 int main(int argc, char* argv[]) {
@@ -32,7 +32,9 @@ int main(int argc, char* argv[]) {
 		len = strlen(nums);
 	}
 
-	printf("Largest element: %d\n", get_max(nums, len));
-	printf("Smallest element: %d\n", get_min(nums, len));
+	minmax mm = get_minmax(nums, len);
+	printf(
+		"Largest element: %d\n"
+		"Smallest element: %d\n", mm.max, mm.min);
 	return 0;
 }

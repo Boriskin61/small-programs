@@ -261,15 +261,10 @@ int main(int argc, char *argv[]) {
     if (argc < 2) {
         return 1;
     }
-    char *bytecode = argv[1];
-    int length = strlen(bytecode);
+    int *bytecode = (int *)argv[1];
+    int length = strlen(argv[1]) / sizeof(int);
 
-    int *code = (int *)calloc(length, sizeof(int));
-    for (int i = 0; i < length; ++i) {
-        code[i] = bytecode[i];
-    }
-
-    VM *vm = vm_create(code, length, 0);
+    VM *vm = vm_create(bytecode, length, 0);
 	vm_exec(vm, 0, false);
 	vm_free(vm);
 

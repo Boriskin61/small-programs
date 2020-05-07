@@ -754,7 +754,7 @@ int main(int argc, char* argv[]) {
 		printf("%08x: ", i);
 		instruction[0] = 0;
 		for (int e = 0; e < count; e++) {
-			sprintf(instruction + strlen(instruction), "%02x ", bytes   [i + e]);
+			sprintf(instruction + strlen(instruction), "%02x ", bytes[i + e]);
         }
 		printf("%-20s %s\n", instruction, disassembled);
 	}

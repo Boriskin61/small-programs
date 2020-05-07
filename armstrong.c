@@ -5,15 +5,9 @@
 int pow3[] = { 0, 1, 8, 27, 64, 125, 216, 343, 512, 729 };
 
 int main(int argc, char* argv[]) {
-  long long n;
+  long long int n;
   if(argc < 2) {
     return 1;
-  } else {
-    n = atoll(argv[1]);
-  }
-
-  if (n == 0) {
-    return 2;
   }
 
   int num, arm = 0, len = strlen(argv[1]);
