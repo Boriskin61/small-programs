@@ -26,7 +26,7 @@ int main(int argc, char* argv[]) {
 	} else {
 		char *data = argv[1];
     	int len = strlen(data);
-    	int hash = PJWHash(data, len);
+    	unsigned int hash = PJWHash(data, len);
 		printf("PJWHash is 0x%08x\n", hash);
 		return 0;
 	}

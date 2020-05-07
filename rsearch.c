@@ -22,18 +22,15 @@ int main(int argc, char* argv[]) {
 
 	pos = rsearch(ch, str, 0);
 	if (pos >= 0) {
-		++count;
 		printf("The char %c is found at the positions [%d", ch, pos);
-	}
-
-	while ((pos = rsearch(ch, str, pos + 1)) >= 0) {
-		printf(", %d", pos);
-	}
-
-	if (count) {
+		
+		while ((pos = rsearch(ch, str, pos + 1)) >= 0) {
+			printf(", %d", pos);
+		}
 		printf("]\n");
 	} else {
 		printf("The char %c is not found\n", ch);
 	}
+	
 	return 0;
 }

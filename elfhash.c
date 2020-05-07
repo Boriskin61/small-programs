@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
 	} else {
 		char *data = argv[1];
     	int len = strlen(data);
-    	int hash = ELFHash(data, len);
+    	unsigned int hash = ELFHash(data, len);
 		printf("ELFHash is 0x%08x\n", hash);
 		return 0;
 	}
